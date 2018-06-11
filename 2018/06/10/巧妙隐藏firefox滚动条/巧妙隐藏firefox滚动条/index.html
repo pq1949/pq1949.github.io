@@ -13,11 +13,11 @@
 
     <title>
         
-          text-intent的缩进样式导致图片不居中的解决办法 - pq1949的博客 | pq1949&#39;s Blog
+          巧妙隐藏firefox滚动条 - pq1949的博客 | pq1949&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://leostudy.top/2018/03/22/text-intent的缩进样式导致图片不居中的解决办法/">
+    <link rel="canonical" href="http://leostudy.top/2018/06/10/巧妙隐藏firefox滚动条/巧妙隐藏firefox滚动条/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -158,7 +158,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/home-bg.jpg')
+        background-image: url('post-bg-js-version.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -168,12 +168,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#前端开发" title="前端开发">前端开发</a>
+                        
+                          <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
+                        
                     </div>
-                    <h1>text-intent的缩进样式导致图片不居中的解决办法</h1>
+                    <h1>巧妙隐藏firefox滚动条</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
-                        Posted by pq1949 on
-                        2018-03-22
+                        Posted by leo on
+                        2018-06-10
                     </span>
                 </div>
             </div>
@@ -192,7 +196,20 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>aaaa</p>
+                <blockquote>
+<p>浏览器默认的滚动条样式不好看，用<code>-webkit-scrollbar{display: none;}</code>隐藏一下，但是兼容性又不太好…</p>
+</blockquote>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>  在工作中遇到一个需求，把浏览器的滚动条给隐藏起来。</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>  网上一搜，有一个<code>webkit-scrollbar{display: none;}</code>属性即可完成这个需求，但是在firefox中打开的时候，这个属性没有效果。在<a href="https://caniuse.com/#search=scrollbar" target="_blank" rel="noopener">caniuse</a>上搜了一下这个<code>scrollbar</code>属性firefox果然是不支持的。scrollbar支持的一些滚动条的样式效果可以在这个页面<a href="http://www.xuanfengge.com/demo/201311/scroll/css3-scroll.html" target="_blank" rel="noopener">查看</a>。基于Gecko内核的firefox暂时没有发布支持自定义滚动条样式的css属性，所以只能另想他法来兼容这个样式。</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>最外层包一个box，用于hidden子元素超出的部分。内部在用一个元素使用overflow:scroll使滚动条显示，然后在使用margin负值使其隐藏。<a href="./raws/test.html">demo</a>可以看这里，能够起到隐藏的滚动条的目的，但是这个margin的数值15px是个经验数值，不是很靠谱的样子，所以这个方法不是很建议使用。下面代码中的填充文字为了不太占篇幅用省略号代替了，想获取填充字符可以在word中新建一个文档输入 <code>=rand()</code> 或者 <code>=lorem()</code>就可以得到填充字符了。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">      <span class="attribute">overflow</span>: hidden;</span><br><span class="line">      <span class="attribute">background</span>: <span class="number">#ddd</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">width</span>:<span class="number">200px</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">    <span class="attribute">overflow-y</span>: scroll;</span><br><span class="line">    <span class="attribute">margin-right</span>: -<span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">      ......</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>就是在方法二基础上在用一个div包一下，具体可以这个例子，这样就不存在经验数字了 <a href="./raws/test2.html">demo</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span>,<span class="selector-class">.outer-container</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.outer-container</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid purple;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inner-container</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">  <span class="attribute">overflow-y</span>: scroll;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inner-container</span><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer-container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"element"</span>&gt;</span></span><br><span class="line">        ......</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>既然找到了合适的解决方法，就可以具体应用到实际的需求中了，在<a href="http://im-ent.debug.web.nd/" target="_blank" rel="noopener">im-ent项目</a>已经采用了这个方法来隐藏滚动条，可以在firefox中打开进行查看，另外<a href="http://im-manager.debug.web.nd" target="_blank" rel="noopener">运维后台</a>截止目前还没有采用这个方式隐藏滚动条，两个项目采用的是同一个框架，所以刚好可以做一个对比。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://segmentfault.com/a/1190000012800450" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012800450</a></p>
+<p><a href="https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/" target="_blank" rel="noopener">https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/</a></p>
+<p><a href="https://css-tricks.com/custom-scrollbars-in-webkit/" target="_blank" rel="noopener">https://css-tricks.com/custom-scrollbars-in-webkit/</a></p>
 
 
                 <hr>
@@ -202,12 +219,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/03/22/git-flow和gerrit使用总结/" data-toggle="tooltip" data-placement="top" title="git-flow和gerrit使用总结">&larr; Previous Post</a>
+                            <a href="/2018/06/11/巧妙隐藏firefox滚动条/raws/test/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/10/28/python开发环境安装记录/" data-toggle="tooltip" data-placement="top" title="python开发环境安装记录">Next Post &rarr;</a>
+                            <a href="/2018/05/16/my-learning-plan/" data-toggle="tooltip" data-placement="top" title="我的学习计划">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -225,6 +242,20 @@
             </div>
     <!-- Side Catalog Container -->
         
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
 
     <!-- Sidebar Container -->
 
@@ -240,6 +271,10 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#前端开发" title="前端开发">前端开发</a>
+                        
+                          <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
+                        
                     </div>
                 </section>
                 
@@ -302,8 +337,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "leostudy";
-    var disqus_identifier = "http://leostudy.top/2018/03/22/text-intent的缩进样式导致图片不居中的解决办法/";
-    var disqus_url = "http://leostudy.top/2018/03/22/text-intent的缩进样式导致图片不居中的解决办法/";
+    var disqus_identifier = "http://leostudy.top/2018/06/10/巧妙隐藏firefox滚动条/巧妙隐藏firefox滚动条/";
+    var disqus_url = "http://leostudy.top/2018/06/10/巧妙隐藏firefox滚动条/巧妙隐藏firefox滚动条/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -530,6 +565,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
