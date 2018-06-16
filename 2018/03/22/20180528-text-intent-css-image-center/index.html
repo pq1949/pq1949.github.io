@@ -13,11 +13,11 @@
 
     <title>
         
-          pq1949的博客 | pq1949&#39;s Blog
+          text-intent的缩进样式导致图片不居中的解决办法 - pq1949的博客 | pq1949&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://leostudy.top/">
+    <link rel="canonical" href="http://leostudy.top/2018/03/22/20180528-text-intent-css-image-center/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -150,365 +150,96 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://leostudy.top/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>pq1949&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Yestearday You Said Tomorrow!</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>text-intent的缩进样式导致图片不居中的解决办法</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by pq1949 on
+                        2018-03-22
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>aaaa</p>
 
 
-<div class="post-preview">
+                <hr>
 
-    <a href="/2018/06/10/20180607-hide-firefox-scroll/">
-        <h2 class="post-title">
-            巧妙隐藏firefox滚动条
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-浏览器默认的滚动条样式不好看，用-webkit-scrollbar{display: none;}隐藏一下，但是兼容性又不太好…
+                
 
-需求  在工作中遇到一个需求，把浏览器的滚动条给隐藏起来。
-方法一  网上一搜，有一个webkit-scrollbar{display: none;}属性即可完成这个需求，但是在firefox中打开的时候，这个属性没有效果。在caniuse上搜了一下这个scr......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by leo on
-        2018-06-10
-    </p>
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/04/21/20180421-how-to-use-hexo/" data-toggle="tooltip" data-placement="top" title="hexo和github搭建个人博客">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                </ul>
 
-</div>
-<hr>
+                
 
-<div class="post-preview">
-
-    <a href="/2018/05/16/20180521-learning-plan-record/">
-        <h2 class="post-title">
-            我的学习计划
-        </h2>
-        <h3 class="post-subtitle">
-            记录好的学习博客
-        </h3>
-        <div class="post-content-preview">
-            
-记录几个博客文章 照着上面的学
-
-&nbsp;&nbsp;brickspert
-&nbsp;&nbsp;毕业一年左右的前端妹子面经总结
-&nbsp;&nbsp;50道CSS基础面试题
-&nbsp;&nbsp;我的 Web 前端面试经历——百度
-&nbsp;&nbsp;左耳朵耗子的时间管理法则
-&nbsp;&nbsp;Web前端面试题小集
-&nbsp;&nbsp;React.js 小书
-&n......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-05-16
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/12/20180512-git-and-git-flow-and-gerrit/">
-        <h2 class="post-title">
-            git-flow和gerrit使用总结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            ...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-05-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/11/20180517-js-common-prolem-record-updating/">
-        <h2 class="post-title">
-            JS常见问题汇总
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            函数参数的默认值ES6 函数允许默认参数，当调用函数时不传参数时会使用默认参数，但是当传的参数是null 就可能会得到与预期不一样的结果，一般预期传null这个参数等效于不传的，但实际上null是有值的  typeof null  返回的是 object
-1234567891011function test(a = &#123;qq:11&#125;)&#123;  const zz = a......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-05-11
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/03/20180503-python-install-record/">
-        <h2 class="post-title">
-            python开发环境安装记录
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            第一个安装 anaconda ，去官网下载，我安装的时候是5.0.1版本，直接选择python2，7版本的下载，但是安装完成后执行 conda  命令总是找不到，并且开放菜单anaconda中只有anaconda prompt菜单，点开这个菜单打开的dos窗口也是提示找不到一个activate.bat的文件，在关闭杀毒软件，所有的安装选项都勾上，环境变量也确定添加了的情况下，竟然还是找不到这......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-05-03
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/04/29/20180429-ubuntu-fixed-ip/">
-        <h2 class="post-title">
-            ubuntu固定IP地址
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1sudo vi /etc/network/interfaces
-123456789101112131415161718# This file describes the network interfaces available on your system# and how to activate them. For more information, see interfaces(5).......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-04-29
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/04/21/20180421-how-to-use-hexo/">
-        <h2 class="post-title">
-            hexo和github搭建个人博客
-        </h2>
-        <h3 class="post-subtitle">
-            记录我的搭建过程
-        </h3>
-        <div class="post-content-preview">
-            
-你们为什么要自己弄一个博客网址了？！
-
-前言一直以来都想弄一个博客来着，虽然现在有很多博客网站，博客园，CSDN，简书等，但总感觉这些网站不是我想要的，我想要一个专门属于自己的域名，这里面只有我存放的东西，这样可能会显得比较有逼格些。  
-之前玩过360前端团队出的一个开源博客系统 firekylin,中文名叫火麒麟，很厉害的样子！样例博客大致是这个样子 屈屈的博客，和现在的这个风格有点接......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-04-21
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/03/22/20180528-text-intent-css-image-center/">
-        <h2 class="post-title">
-            text-intent的缩进样式导致图片不居中的解决办法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            aaaa
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-03-22
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-
-                <!-- 如果开启评论功能 -->
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
+                       
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>又是新的一天!</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://twitter.com/pq1949">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/1996859477">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.facebook.com/leo.pei.399">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/pq1949">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -555,9 +286,66 @@
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "leostudy";
+    var disqus_identifier = "http://leostudy.top/2018/03/22/20180528-text-intent-css-image-center/";
+    var disqus_url = "http://leostudy.top/2018/03/22/20180528-text-intent-css-image-center/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
