@@ -13,11 +13,11 @@
 
     <title>
         
-          pq1949的博客 | pq1949&#39;s Blog
+          ubuntu固定IP地址 - pq1949的博客 | pq1949&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://leostudy.top/tags/前端开发/">
+    <link rel="canonical" href="http://leostudy.top/article/20180429-ubuntu-fixed-ip/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -156,7 +156,220 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://leostudy.top/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-unix-linux.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#ubuntu" title="ubuntu">ubuntu</a>
+                        
+                          <a class="tag" href="/tags/#ip" title="ip">ip</a>
+                        
+                    </div>
+                    <h1>ubuntu固定IP地址</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by pq1949 on
+                        2018-04-29
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># This file describes the network interfaces available on your system</span></span><br><span class="line"><span class="comment"># and how to activate them. For more information, see interfaces(5).</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">source</span> /etc/network/interfaces.d/*</span><br><span class="line"></span><br><span class="line"><span class="comment"># The loopback network interface</span></span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line"><span class="comment"># The primary network interface</span></span><br><span class="line">auto ens33</span><br><span class="line"></span><br><span class="line"><span class="comment">#iface ens33 inet dhcp</span></span><br><span class="line"></span><br><span class="line">iface ens33 inet static</span><br><span class="line">address <span class="number">192.168.1.8</span></span><br><span class="line">netmask <span class="number">255.255.255.0</span></span><br><span class="line">gateway <span class="number">192.168.1.1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/resolvconf/resolv.conf.d/base</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nameserver 192.168.1.1</span><br><span class="line">nameserver 220.170.64.68</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo  vi /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+<p>修改这个文件只是临时修改了一下 ，下次重启就又没有了，修改这个<br>/etc/resolvconf/resolv.conf.d/base 才会一直有效</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/20180503-python-install-record/" data-toggle="tooltip" data-placement="top" title="python开发环境安装记录">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/20180421-how-to-use-hexo/" data-toggle="tooltip" data-placement="top" title="hexo和github搭建个人博客">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#ubuntu" title="ubuntu">ubuntu</a>
+                        
+                          <a class="tag" href="/tags/#ip" title="ip">ip</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.ruanyifeng.com/" target="_blank">阮一峰</a></li>
+                    
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+                    
+                        <li><a href="http://www.zhangxinxu.com/" target="_blank">张鑫旭</a></li>
+                    
+                        <li><a href="http://html5ify.com/" target="_blank">朴灵</a></li>
+                    
+                        <li><a href="https://www.barretlee.com/entry/" target="_blank">小胡子哥</a></li>
+                    
+                        <li><a href="http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html" target="_blank">Tom大叔</a></li>
+                    
+                        <li><a href="https://www.qianduanmei.com/" target="_blank">前端美</a></li>
+                    
+                        <li><a href="http://taobaofed.org/" target="_blank">淘宝前端团队</a></li>
+                    
+                        <li><a href="http://www.alloyteam.com/" target="_blank">腾讯前端团队</a></li>
+                    
+                        <li><a href="http://fex.baidu.com/" target="_blank">百度前端团队</a></li>
+                    
+                        <li><a href="ttps://75team.com/" target="_blank">360前端团队</a></li>
+                    
+                        <li><a href="http://f2e.souche.com/blog/" target="_blank">大搜车前端团队</a></li>
+                    
+                        <li><a href="https://zhuanlan.zhihu.com/FrontendMagazine" target="_blank">前端外刊评论</a></li>
+                    
+                        <li><a href="https://juejin.im/" target="_blank">掘金</a></li>
+                    
+                        <li><a href="http://ued.sina.com.cn/?cat=4" target="_blank">新浪前端团队</a></li>
+                    
+                        <li><a href="http://yincheng.site/" target="_blank">会编程的猪</a></li>
+                    
+                        <li><a href="http://jdc.jd.com/" target="_blank">京东设计中心</a></li>
+                    
+                        <li><a href="https://github.com/foru17/front-end-collect" target="_blank">前端博客GitHub整理</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "leostudy";
+    var disqus_identifier = "http://leostudy.top/article/20180429-ubuntu-fixed-ip/";
+    var disqus_url = "http://leostudy.top/article/20180429-ubuntu-fixed-ip/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
 
     <!-- Footer -->
     <!-- Footer -->

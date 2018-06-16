@@ -13,11 +13,11 @@
 
     <title>
         
-          About - pq1949的博客 | pq1949&#39;s Blog
+          JS常见问题汇总 - pq1949的博客 | pq1949&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://leostudy.top/about/">
+    <link rel="canonical" href="http://leostudy.top/article/20180517-js-common-prolem-record-updating/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -156,214 +156,109 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/about-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://leostudy.top/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('post-bg-js-version.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>About</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is pq1949.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                    </div>
+                    <h1>JS常见问题汇总</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by pq1949 on
+                        2018-05-17
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <blockquote>
-<p>这家伙很懒，什么都没留下~</p>
-</blockquote>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="函数参数的默认值"><a href="#函数参数的默认值" class="headerlink" title="函数参数的默认值"></a>函数参数的默认值</h1><p>ES6 函数允许默认参数，当调用函数时不传参数时会使用默认参数，但是当传的参数是<em>null</em> 就可能会得到与预期不一样的结果，一般预期传<em>null</em>这个参数等效于不传的，但实际上<em>null</em>是有值的  typeof null  返回的是 object</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a = &#123;qq:<span class="number">11</span>&#125;</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> zz = a || &#123;&#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  <span class="built_in">console</span>.log(zz)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test(<span class="literal">null</span>)</span><br><span class="line">============output=============</span><br><span class="line"><span class="literal">null</span></span><br><span class="line">&#123;&#125;</span><br><span class="line"></span><br><span class="line">test()</span><br><span class="line">============output=============</span><br><span class="line">&#123; <span class="attr">qq</span>: <span class="number">11</span> &#125;</span><br><span class="line">&#123; <span class="attr">qq</span>: <span class="number">11</span> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">null</span> || <span class="number">0</span>)   <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(<span class="literal">null</span> || <span class="number">0</span>)) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(!!<span class="literal">null</span>)  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h1 id="查询字符串"><a href="#查询字符串" class="headerlink" title="查询字符串"></a>查询字符串</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQuery</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>)</span><br><span class="line">  <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg)</span><br><span class="line">  <span class="keyword">if</span> (r != <span class="literal">null</span>) <span class="keyword">return</span> <span class="built_in">unescape</span>(r[<span class="number">2</span>])</span><br><span class="line">  <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有一个<a href="https://www.npmjs.com/package/query-string" target="_blank" rel="noopener">query-string</a> 用这个兼容性更好些，可以学习一下源码</p>
+<h1 id="获取IP地址"><a href="#获取IP地址" class="headerlink" title="获取IP地址"></a>获取IP地址</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">// 获取本地 IP 地址，参（ctrl+c）考（ctrl+v）：http://zhangyaochun.iteye.com/blog/2028335</span></span><br><span class="line">   <span class="keyword">const</span> interfaces = os.networkInterfaces()</span><br><span class="line">   <span class="keyword">for</span> ( <span class="keyword">let</span> devName <span class="keyword">in</span> interfaces ) &#123;</span><br><span class="line">     <span class="keyword">const</span> iface = interfaces[devName]</span><br><span class="line">     <span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; iface.length; i++)&#123;</span><br><span class="line">       <span class="keyword">const</span> alias = iface[i]</span><br><span class="line">       <span class="keyword">if</span> (alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal) &#123;</span><br><span class="line">         <span class="keyword">return</span> alias.address</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">'localhost'</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log(getIPAdress())</span><br></pre></td></tr></table></figure>
 
 
-                <!-- 如果开启评论功能 -->
+                <hr>
+
                 
-                    <hr>
 
+                <ul class="pager">
                     
-
+                        <li class="previous">
+                            <a href="/article/20180521-learning-plan-record/" data-toggle="tooltip" data-placement="top" title="我的学习计划">&larr; Previous Post</a>
+                        </li>
                     
-                    <!-- disqus 评论框 start -->
-                    <div class="comment">
-                        <div id="disqus_thread" class="disqus-thread"></div>
-                    </div>
-                    <!-- disqus 评论框 end -->
                     
-
-
+                        <li class="next">
+                            <a href="/article/20180512-git-and-git-flow-and-gerrit/" data-toggle="tooltip" data-placement="top" title="git-flow和gerrit使用总结">Next Post &rarr;</a>
+                        </li>
                     
+                </ul>
 
-                    
-                    <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-                    <script type="text/javascript">
-                        /* * * CONFIGURATION VARIABLES * * */
-                        var disqus_shortname = "leostudy";
-                        var disqus_identifier = "http://leostudy.top/about/index.html";
-                        var disqus_url = "http://leostudy.top/about/index.html";
+                
 
-                        (function() {
-                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                        })();
-
-                        
-                    </script>
-                    <!-- disqus 公共JS代码 end -->
-                    
-
-
-
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
+                       
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>又是新的一天!</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://twitter.com/pq1949">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/1996859477">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.facebook.com/leo.pei.399">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/pq1949">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -410,9 +305,66 @@
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "leostudy";
+    var disqus_identifier = "http://leostudy.top/article/20180517-js-common-prolem-record-updating/";
+    var disqus_url = "http://leostudy.top/article/20180517-js-common-prolem-record-updating/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
