@@ -13,11 +13,11 @@
 
     <title>
         
-          巧妙隐藏firefox滚动条 - pq1949的博客 | pq1949&#39;s Blog
+          网盘展示图片性能优化 - pq1949的博客 | pq1949&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://leostudy.top/article/20180607-hide-firefox-scroll/">
+    <link rel="canonical" href="http://leostudy.top/article/20180615-css-performance/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -164,7 +164,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('roll.jpg')
+        background-image: url('/img/home-bg.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -174,16 +174,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#前端开发" title="前端开发">前端开发</a>
-                        
-                          <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
-                        
                     </div>
-                    <h1>巧妙隐藏firefox滚动条</h1>
+                    <h1>网盘展示图片性能优化</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by pq1949 on
-                        2018-06-07
+                        2018-06-15
                     </span>
                 </div>
             </div>
@@ -203,19 +199,24 @@
                 post-container">
 
                 <blockquote>
-<p>浏览器默认的滚动条样式不好看，用<code>-webkit-scrollbar{display: none;}</code>隐藏一下，但是兼容性又不太好…</p>
+<p>css 动画很耗cpu啊 </p>
 </blockquote>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>  在工作中遇到一个需求，把浏览器的滚动条给隐藏起来。</p>
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>  网上一搜，有一个<code>webkit-scrollbar{display: none;}</code>属性即可完成这个需求，但是在firefox中打开的时候，这个属性没有效果。在<a href="https://caniuse.com/#search=scrollbar" target="_blank" rel="noopener">caniuse</a>上搜了一下这个<code>scrollbar</code>属性firefox果然是不支持的。scrollbar支持的一些滚动条的样式效果可以在这个页面<a href="http://www.xuanfengge.com/demo/201311/scroll/css3-scroll.html" target="_blank" rel="noopener">查看</a>。基于Gecko内核的firefox暂时没有发布支持自定义滚动条样式的css属性，所以只能另想他法来兼容这个样式。</p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>最外层包一个box，用于hidden子元素超出的部分。内部在用一个元素使用overflow:scroll使滚动条显示，然后在使用margin负值使其隐藏。可以看这个<a href="/demo/20180607-hide-firefox-scroll/test.html">demo</a>，能够起到隐藏的滚动条的目的，但是这个margin的数值15px是个经验数值，不是很靠谱的样子，所以这个方法不是很建议使用。获取填充字符可以在word中新建一个文档输入 <code>=rand()</code> 或者 <code>=lorem()</code>就可以得到填充字符了。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">      <span class="attribute">overflow</span>: hidden;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">2px</span> solid purple;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">width</span>:  <span class="number">500px</span>;</span><br><span class="line">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">      &#125;</span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">    <span class="attribute">overflow-y</span>: scroll;</span><br><span class="line">    <span class="attribute">margin-right</span>: -<span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">        ......</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>就是在方法二基础上在用一个div包一下，具体可以这个例子，这样就不存在经验数字了。 <a href="/demo/20180607-hide-firefox-scroll/test2.html">demo</a></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.element</span>,<span class="selector-class">.outer-container</span> &#123;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.outer-container</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid purple;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inner-container</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">  <span class="attribute">overflow-y</span>: scroll;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inner-container</span><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer-container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner-container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"element"</span>&gt;</span></span><br><span class="line">      ......</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://segmentfault.com/a/1190000012800450" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012800450</a></p>
-<p><a href="https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/" target="_blank" rel="noopener">https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/</a></p>
-<p><a href="https://css-tricks.com/custom-scrollbars-in-webkit/" target="_blank" rel="noopener">https://css-tricks.com/custom-scrollbars-in-webkit/</a></p>
+<p>工作中在做云盘性能优化时，发现云盘里面的loading组件不应该用 nd-rc/lib/spinner这个组件的加载效果是用 css动画实现的云盘只要打开一个有很多图片的目录 cpu瞬间飙到100多，图片多到一定量时整个浏览器都会卡住，一个小小的css动画 放到到几百个也是很占cpu资源的下面是页面打开一个图片的目录不做任何操作 页面cpu稳定在80左右。</p>
+<p><img src="1.png" alt=""></p>
+<p>去掉spinner插件 cpu占用一下就下去了<br><img src="2.png" alt=""></p>
+<p>这个 nd-rc 里面的 spinner最终是css动画渲染出来的加载效果 这种加载效果不适合在云盘中使用 个人感觉要换成gif图片的形式<br><img src="3.png" alt=""><br>开始还以为是我哪个地方写成死循环了 找来半天发现是css动画的原因导致浏览器卡住的。<br>gif 好像也有帧的概念 换成gif后 cpu还是会占用一点 但没有css那个多了,看了下百度网盘直接用的是图片没加载完成时直接用的是静态图片。</p>
+<p><img src="4.png" alt=""></p>
+<p>换成静态图片的效果 cpu基本是0<br><img src="5.png" alt=""></p>
+<p>页面渲染差异对比css 渲染</p>
+<p>css 渲染<br><img src="6.png" alt=""></p>
+<p>gif图片<br><img src="7.png" alt=""></p>
+<p>静态图片<br><img src="8.png" alt=""></p>
+<p>对于页面中出现的大量加载效果，为了页面性能考虑还是换成静态图片是最好的</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>另外云盘的优化还涉及到下面两点</p>
+<ul>
+<li>滚动条事件去抖动，不去抖动的话，滚动事件触犯太频繁</li>
+<li>加载图片的时候每只加载视口区的图片，滚动条滚动到哪里才开始请求对应的图片</li>
+</ul>
 
 
                 <hr>
@@ -224,13 +225,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/20180610-delete-cloud-icon/" data-toggle="tooltip" data-placement="top" title="删除我的电脑中的云盘图标">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/20180528-text-intent-css-image-center/" data-toggle="tooltip" data-placement="top" title="text-intent的缩进样式导致图片不居中的解决办法">Next Post &rarr;</a>
+                            <a href="/article/20180610-delete-cloud-icon/" data-toggle="tooltip" data-placement="top" title="删除我的电脑中的云盘图标">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -277,10 +274,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#前端开发" title="前端开发">前端开发</a>
-                        
-                          <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
-                        
                     </div>
                 </section>
                 
@@ -343,8 +336,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "leostudy";
-    var disqus_identifier = "http://leostudy.top/article/20180607-hide-firefox-scroll/";
-    var disqus_url = "http://leostudy.top/article/20180607-hide-firefox-scroll/";
+    var disqus_identifier = "http://leostudy.top/article/20180615-css-performance/";
+    var disqus_url = "http://leostudy.top/article/20180615-css-performance/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -212,7 +212,10 @@
 <h1 id="图形化软件使用"><a href="#图形化软件使用" class="headerlink" title="图形化软件使用"></a>图形化软件使用</h1><p> 只用过<a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener">sourcetree</a> 确实很方便，pc,mac端都有客户端，每次提交前看一下提交的文件状态，可以很方便的看到自己对哪些文件进行了改动，另外文件对比功能，我选择的是<a href="https://www.scootersoftware.com/download.php" target="_blank" rel="noopener">Beyond Compare</a> ，选中某个文件改动的文件 <code>ctrl + d</code> 就可以方便的启动beyond compare进行查看。 另外<code>sourcetree</code>还可以很方便的查看一个文件的历史提交记录，并且可以查看他们之间的差异。有了这两个软件，就不用记那么多git的命令了，懒人必备。</p>
 <p> <code>sourecetree</code>这个软件使用的时候需要登录一个账户，尴尬的是这个账户注册的页面是需要梯子才可以方法的，pc端有一个绕过去的方法，很容易搜到，mac端就没那么教程了，很难解决，好在最后我学会了搭梯子，顺利的解决了这个问题，关于如何搭梯子，我在这里也做了记录。</p>
 <p> <code>beyond compare</code>很好用，但是是收费的，破解也不是很好破解，网上可以找一些方法，先用一段时间，不能用的时候在想办法，目前还没有找到一个可以完全破解的方法。</p>
-<h1 id="git-flow-简介"><a href="#git-flow-简介" class="headerlink" title="git-flow 简介"></a>git-flow 简介</h1><h1 id="gerrit-简介"><a href="#gerrit-简介" class="headerlink" title="gerrit 简介"></a>gerrit 简介</h1><h1 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h1><p><img src="git.png" alt="git-work-flow"><br>虽然git有上面很好用的命令。但是一些简单的git命令，还是需要记住的。</p>
+<h1 id="git-flow-简介"><a href="#git-flow-简介" class="headerlink" title="git-flow 简介"></a>git-flow 简介</h1><p><img src="git-flow.png" alt="git-flow"><br> git鼓励开发者多利用分支进行开发，但是如何更加规范的创建和管理分支是需要开发团队提前约定好的，git-flow就是做这个事情的，按照git-flow打开发流程能够很好的协调好团队的开发流程，大家都遵守这个流程的话互相配合起来就会更加高效不容易出错了。<br> 具体可以参考下面的<a href="https://www.cnblogs.com/lcngu/p/5770288.html" target="_blank" rel="noopener">文章</a></p>
+<p> 摘抄一些命令如下<br> <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">git flow init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始新Feature</span></span><br><span class="line">git flow feature start MYFEATURE</span><br><span class="line"></span><br><span class="line"><span class="comment"># Publish一个Feature(也就是push到远程)</span></span><br><span class="line">git flow feature publish MYFEATURE</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取Publish的Feature</span></span><br><span class="line">git flow feature pull origin MYFEATURE</span><br><span class="line"></span><br><span class="line"><span class="comment"># 完成一个Feature</span></span><br><span class="line">git flow feature finish MYFEATURE</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始一个Release</span></span><br><span class="line">git flow release start RELEASE [BASE]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Publish一个Release</span></span><br><span class="line">git flow release publish RELEASE</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布Release</span></span><br><span class="line">git flow release finish RELEASE</span><br><span class="line">git push --tags</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始一个Hotfix</span></span><br><span class="line">git flow hotfix start VERSION [BASENAME]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布一个Hotfix</span></span><br><span class="line">git flow hotfix finish VERSION</span><br></pre></td></tr></table></figure></p>
+<h1 id="gerrit-简介"><a href="#gerrit-简介" class="headerlink" title="gerrit 简介"></a>gerrit 简介</h1><p>gerrit 是一个用来做code review的工具，对于开发团队来说CR也是非常重要的，比如线上改动的bug，如果需要进行CR的话可以很方便的在gerrit上进行，gerrit其实和私有的git服务器很类似，需要搭建一个gerrit服务器，每次check out 代码直接在gerrit上进行，然后提交代码也到gerrit上，gerrit会自动把自己的代码同步到绑定的git上去，前提是和gerrit和git上没有冲突，冲突出现的原因一般是有人不按照规范直接把代码提交打git上去了。<br>gerrit具体搭建过程可以在网上搜一下，很多。<br><a href="https://blog.csdn.net/tq08g2z/article/details/78627653" target="_blank" rel="noopener">gerrit搭建</a></p>
+<h1 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h1><p><img src="git.png" alt="git-work-flow"><br>虽然git有上面很好用的命令。但是一些简单的git命令，还是需要记住的。</p>
 <h2 id="我的常用命令"><a href="#我的常用命令" class="headerlink" title="我的常用命令"></a>我的常用命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看当前git仓库状态</span></span><br><span class="line">status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看分支</span></span><br><span class="line">git branch [-a]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前远程仓库地址  这个很实用 提交前可以用来确认一下提交的仓库地址对不对</span></span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 暂存本地的改动的文件，用来切换到另一个分支时，避免切换到分支后出现冲突文件</span></span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复现场  还有一个 git stash  list  查看储藏记录 一般工作记住两个就差不多够用了</span></span><br><span class="line">git stash pop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示今天你写了多少行代码</span></span><br><span class="line">git diff --shortstat <span class="string">"@&#123;0 day ago&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示提交记录</span></span><br><span class="line">git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></span><br><span class="line">git lg</span><br><span class="line">git lg -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上面的这个显示代码函数命令太长 也可以设置一个alias</span></span><br><span class="line">git config --global alias.wc <span class="string">"diff --shortstat '@&#123;0 day ago&#125;'"</span></span><br><span class="line">git wc</span><br></pre></td></tr></table></figure>
 <p>下面是从<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">阮老师</a>那copy过来做备份的</p>
 <h2 id="新建代码库"><a href="#新建代码库" class="headerlink" title="新建代码库"></a>新建代码库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在当前目录新建一个Git代码库</span></span><br><span class="line">$ git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个目录，将其初始化为Git代码库</span></span><br><span class="line">$ git init [project-name]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载一个项目和它的整个代码历史</span></span><br><span class="line">$ git <span class="built_in">clone</span> [url]</span><br></pre></td></tr></table></figure>
@@ -256,6 +259,20 @@
 
             </div>
     <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
         
 
     <!-- Sidebar Container -->
@@ -570,6 +587,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 

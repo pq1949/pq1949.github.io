@@ -206,6 +206,7 @@
 <h1 id="查询字符串"><a href="#查询字符串" class="headerlink" title="查询字符串"></a>查询字符串</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQuery</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>)</span><br><span class="line">  <span class="keyword">var</span> r = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>).match(reg)</span><br><span class="line">  <span class="keyword">if</span> (r != <span class="literal">null</span>) <span class="keyword">return</span> <span class="built_in">unescape</span>(r[<span class="number">2</span>])</span><br><span class="line">  <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有一个<a href="https://www.npmjs.com/package/query-string" target="_blank" rel="noopener">query-string</a> 用这个兼容性更好些，可以学习一下源码</p>
 <h1 id="获取IP地址"><a href="#获取IP地址" class="headerlink" title="获取IP地址"></a>获取IP地址</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">// 获取本地 IP 地址，参（ctrl+c）考（ctrl+v）：http://zhangyaochun.iteye.com/blog/2028335</span></span><br><span class="line">   <span class="keyword">const</span> interfaces = os.networkInterfaces()</span><br><span class="line">   <span class="keyword">for</span> ( <span class="keyword">let</span> devName <span class="keyword">in</span> interfaces ) &#123;</span><br><span class="line">     <span class="keyword">const</span> iface = interfaces[devName]</span><br><span class="line">     <span class="keyword">for</span>( <span class="keyword">let</span> i = <span class="number">0</span>; i &lt; iface.length; i++)&#123;</span><br><span class="line">       <span class="keyword">const</span> alias = iface[i]</span><br><span class="line">       <span class="keyword">if</span> (alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal) &#123;</span><br><span class="line">         <span class="keyword">return</span> alias.address</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">'localhost'</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log(getIPAdress())</span><br></pre></td></tr></table></figure>
+<h1 id="文件选择框最大文件个数"><a href="#文件选择框最大文件个数" class="headerlink" title="文件选择框最大文件个数"></a>文件选择框最大文件个数</h1><p>在使用文件个数选择框的时候文件个数超过限制的时候会出现无响应的的现象，可以打开百度网盘文件选择框同时选中大概1000个文件，会出现无反应的现象，这个是浏览器自己限制的<br>原因可以看<a href="https://stackoverflow.com/questions/15851751/what-is-the-max-number-of-files-to-select-in-an-html5-multiple-file-input" target="_blank" rel="noopener">这里</a>，chrome大概支持的文件长度是32k</p>
 
 
                 <hr>
@@ -237,6 +238,20 @@
 
             </div>
     <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
         
 
     <!-- Sidebar Container -->
@@ -545,6 +560,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
