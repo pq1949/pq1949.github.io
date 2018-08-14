@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -190,6 +190,77 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/article/20180815-centos安装redis记录/">
+        <h2 class="post-title">
+            centos安装redis记录
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            环境检查和更新sudo yum install epel-releasesudo yum updatesudo yum install redis
+启动systemctl start redissystemctl enable redis // 可选  开机自启动
+验证redis-cli ping  // return PONG
+配置持久化--------- /etc/redis.conf-......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by pq1949 on
+        2018-08-15
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/20180814-centos安装mysql记录/">
+        <h2 class="post-title">
+            centos安装mysql记录
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            确认系统环境cat /etc/redhat-release
+更新环境sudo yum update
+检测系统是否自带安装mysqlyum list installed | grep mysqlrpm -qa|grep -i mysql
+如果安装过需要卸载的话用rpm -e软件包名  来卸载rpm -e mysql　　// 普通删除模式rpm -e --nodeps mysql // 如果使用......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by pq1949 on
+        2018-08-14
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/20180814-git的提交规范/">
+        <h2 class="post-title">
+            git的提交规范
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            参考这个文章
+Commit message 和 Change log 编写指南  http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
+npm install -g commitizencommitizen init cz-conventional-changelog --save --save-exact......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by pq1949 on
+        2018-08-14
+    </p>
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -362,80 +433,16 @@ function test(a = &#123;qq:11&#125;)&#123;  const zz = a || &#123;&#1......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/article/20180503-python-install-record/">
-        <h2 class="post-title">
-            python开发环境安装记录
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            第一个安装 anaconda ，去官网下载，我安装的时候是5.0.1版本，直接选择python2，7版本的下载，但是安装完成后执行 conda  命令总是找不到，并且开放菜单anaconda中只有anaconda prompt菜单，点开这个菜单打开的dos窗口也是提示找不到一个activate.bat的文件，在关闭杀毒软件，所有的安装选项都勾上，环境变量也确定添加了的情况下，竟然还是找不到这......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-05-03
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/20180429-ubuntu-fixed-ip/">
-        <h2 class="post-title">
-            ubuntu固定IP地址
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            sudo vi /etc/network/interfaces
-# This file describes the network interfaces available on your system# and how to activate them. For more information, see interfaces(5).source /etc/network/interfac......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-04-29
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/20180421-how-to-use-hexo/">
-        <h2 class="post-title">
-            hexo和github搭建个人博客
-        </h2>
-        <h3 class="post-subtitle">
-            记录我的搭建过程
-        </h3>
-        <div class="post-content-preview">
-            
-为什么要自己弄一个博客网址了？！
-
-前言一直以来都想弄一个博客来着，虽然现在有很多博客网站，博客园，CSDN，简书等，但总感觉这些网站不是我想要的，我想要一个专门属于自己的域名，这里面只有我存放的东西，这样可能会显得比较有逼格些。  
-之前玩过360前端团队出的一个开源博客系统 firekylin,中文名叫火麒麟，很厉害的样子！样例博客大致是这个样子 屈屈的博客，和现在的这个风格有点接近，......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by pq1949 on
-        2018-04-21
-    </p>
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
 
 <ul class="pager">
     
+    
+        <li class="next">
+            <a href="/page/2/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -475,17 +482,21 @@ function test(a = &#123;qq:11&#125;)&#123;  const zz = a || &#123;&#1......
                             
                         
                             
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
                             <a href="/tags/#CSS" title="CSS" rel="2">CSS</a>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#NoteBook" title="NoteBook" rel="3">NoteBook</a>
                             
                         
                             
