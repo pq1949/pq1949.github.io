@@ -90,13 +90,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -105,6 +98,13 @@
                         
                         <li>
                             <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -208,6 +208,8 @@
 <p>eg <code>requirepass 1231231khkh@1khk1h31hk!2@&amp;!^%&amp;%@!&amp;</code></p>
 <p>只做测试使用的话上面的配置就够了，其他主从，副本集的配置可另做研究</p>
 <h2 id="客户端访问"><a href="#客户端访问" class="headerlink" title="客户端访问"></a>客户端访问</h2><p>windows上使用  Redis Desktop Manager<br>官网 <a href="https://redisdesktop.com/" target="_blank" rel="noopener">https://redisdesktop.com/</a><br>下载地址  <a href="https://github.com/uglide/RedisDesktopManager/releases" target="_blank" rel="noopener">https://github.com/uglide/RedisDesktopManager/releases</a><br><img src="/img/20180815-centos安装redis记录/20180815-centos安装redis记录-010727529.png" alt=""><br><img src="/img/20180815-centos安装redis记录/20180815-centos安装redis记录-010754297.png" alt=""></p>
+<h2 id="命令行访问"><a href="#命令行访问" class="headerlink" title="命令行访问"></a>命令行访问</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">redis-cli -h &#123;host&#125; -p &#123;port&#125;</span><br><span class="line">auth pass</span><br><span class="line">ping</span><br><span class="line">keys *</span><br></pre></td></tr></table></figure>
+<p>默认是 127.0.0.1 6379</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.linode.com/docs/databases/redis/install-and-configure-redis-on-centos-7/" target="_blank" rel="noopener">https://www.linode.com/docs/databases/redis/install-and-configure-redis-on-centos-7/</a></p>
 
 
