@@ -13,11 +13,11 @@
 
     <title>
         
-          网盘展示图片性能优化 - pq1949的博客 | pq1949&#39;s Blog
+          20190326-beyondcompare自动激活 - pq1949的博客 | pq1949&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://leostudy.top/article/20180615-css-performance/">
+    <link rel="canonical" href="http://leostudy.top/article/20190326-beyondcompare自动激活/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -174,12 +174,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#NoteBook" title="NoteBook">NoteBook</a>
+                        
                     </div>
-                    <h1>网盘展示图片性能优化</h1>
+                    <h1>20190326-beyondcompare自动激活</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by pq1949 on
-                        2018-06-15
+                        2019-03-26
                     </span>
                 </div>
             </div>
@@ -198,25 +200,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>css 动画很耗cpu啊 </p>
-</blockquote>
-<p>工作中在做云盘性能优化时，发现云盘里面的loading组件不应该用 nd-rc/lib/spinner这个组件的加载效果是用 css动画实现的云盘只要打开一个有很多图片的目录 cpu瞬间飙到100多，图片多到一定量时整个浏览器都会卡住，一个小小的css动画 放到到几百个也是很占cpu资源的下面是页面打开一个图片的目录不做任何操作 页面cpu稳定在80左右。</p>
-<p><img src="1.png" alt=""></p>
-<p>去掉spinner插件 cpu占用一下就下去了<br><img src="2.png" alt=""></p>
-<p>这个 nd-rc 里面的 spinner最终是css动画渲染出来的加载效果 这种加载效果不适合在云盘中使用 个人感觉要换成gif图片的形式<br><img src="3.png" alt=""><br>开始还以为是我哪个地方写成死循环了 找来半天发现是css动画的原因导致浏览器卡住的。<br>gif 好像也有帧的概念 换成gif后 cpu还是会占用一点 但没有css那个多了,看了下百度网盘直接用的是图片没加载完成时直接用的是静态图片。</p>
-<p><img src="4.png" alt=""></p>
-<p>换成静态图片的效果 cpu基本是0<br><img src="5.png" alt=""></p>
-<p>页面渲染差异对比css 渲染</p>
-<p>css 渲染<br><img src="6.png" alt=""></p>
-<p>gif图片<br><img src="7.png" alt=""></p>
-<p>静态图片<br><img src="8.png" alt=""></p>
-<p>对于页面中出现的大量加载效果，为了页面性能考虑还是换成静态图片是最好的</p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>另外云盘的优化还涉及到下面两点</p>
-<ul>
-<li>滚动条事件去抖动，不去抖动的话，滚动事件触犯太频繁</li>
-<li>加载图片的时候每只加载视口区的图片，滚动条滚动到哪里才开始请求对应的图片</li>
-</ul>
+                <p>1、安装 beyondcompare <a href="https://www.scootersoftware.com/download.php" target="_blank" rel="noopener">https://www.scootersoftware.com/download.php</a></p>
+<p>2、新建下面的文件</p>
+<p>activeBeyond.vbs</p>
+<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Set</span> ws = <span class="built_in">CreateObject</span>(<span class="string">"Wscript.Shell"</span>)</span><br><span class="line">ws.run <span class="string">"cmd /c activeBeyond.bat"</span>,vbhide</span><br><span class="line"><span class="comment">'Set objFSO = CreateObject("Scripting.FileSystemObject")</span></span><br><span class="line"><span class="comment">'objFSO.DeleteFile("C:\Users\Administrator\AppData\Roaming\Scooter Software\Beyond Compare 4\BCState.xml")</span></span><br><span class="line"><span class="comment">'objFSO.DeleteFile("C:\Users\Administrator\AppData\Roaming\Scooter Software\Beyond Compare 4\BCState.xml.bak")</span></span><br><span class="line"><span class="built_in">msgbox</span> <span class="string">"Beyond Compare 4 Active Success!"</span></span><br></pre></td></tr></table></figure>
+<p>3、 添加到开机启动项</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shell:startup</span><br></pre></td></tr></table></figure>
+<p>复制 activeBeyond.vbs 到打开的目录中去</p>
+<p><a href="https://gist.github.com/pq1949/522c09c4597287baff07e1981cac0df4" target="_blank" rel="noopener">https://gist.github.com/pq1949/522c09c4597287baff07e1981cac0df4</a></p>
 
 
                 <hr>
@@ -225,13 +216,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/20180814-git的提交规范/" data-toggle="tooltip" data-placement="top" title="git的提交规范">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/20180610-delete-cloud-icon/" data-toggle="tooltip" data-placement="top" title="删除我的电脑中的云盘图标">Next Post &rarr;</a>
+                            <a href="/article/20190102-知识点/" data-toggle="tooltip" data-placement="top" title="20190102-知识点">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -278,6 +265,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#NoteBook" title="NoteBook">NoteBook</a>
+                        
                     </div>
                 </section>
                 
@@ -340,8 +329,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "leostudy";
-    var disqus_identifier = "http://leostudy.top/article/20180615-css-performance/";
-    var disqus_url = "http://leostudy.top/article/20180615-css-performance/";
+    var disqus_identifier = "http://leostudy.top/article/20190326-beyondcompare自动激活/";
+    var disqus_url = "http://leostudy.top/article/20190326-beyondcompare自动激活/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
