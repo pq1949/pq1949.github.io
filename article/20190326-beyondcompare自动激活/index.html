@@ -204,9 +204,10 @@
 <p>2、新建下面的文件</p>
 <p>activeBeyond.vbs</p>
 <figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Set</span> ws = <span class="built_in">CreateObject</span>(<span class="string">"Wscript.Shell"</span>)</span><br><span class="line">ws.run <span class="string">"cmd /c activeBeyond.bat"</span>,vbhide</span><br><span class="line"><span class="comment">'Set objFSO = CreateObject("Scripting.FileSystemObject")</span></span><br><span class="line"><span class="comment">'objFSO.DeleteFile("C:\Users\Administrator\AppData\Roaming\Scooter Software\Beyond Compare 4\BCState.xml")</span></span><br><span class="line"><span class="comment">'objFSO.DeleteFile("C:\Users\Administrator\AppData\Roaming\Scooter Software\Beyond Compare 4\BCState.xml.bak")</span></span><br><span class="line"><span class="built_in">msgbox</span> <span class="string">"Beyond Compare 4 Active Success!"</span></span><br></pre></td></tr></table></figure>
+<p>activeBeyond.bat<br><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:loop</span><br><span class="line"><span class="built_in">del</span> "C:\Users\Administrator\AppData\Roaming\Scooter Software\Beyond Compare <span class="number">4</span>\BCState.xml"</span><br><span class="line"><span class="built_in">del</span> "C:\Users\Administrator\AppData\Roaming\Scooter Software\Beyond Compare <span class="number">4</span>\BCState.xml.bak"</span><br><span class="line">@<span class="built_in">ping</span> <span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span> -n <span class="number">1</span> &gt;<span class="built_in">nul</span></span><br><span class="line"><span class="keyword">goto</span> loop</span><br></pre></td></tr></table></figure></p>
 <p>3、 添加到开机启动项</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">shell:startup</span><br></pre></td></tr></table></figure>
-<p>复制 activeBeyond.vbs 到打开的目录中去</p>
+<p>复制 activeBeyond.vbs 的快捷方式到打开的目录中去</p>
 <p><a href="https://gist.github.com/pq1949/522c09c4597287baff07e1981cac0df4" target="_blank" rel="noopener">https://gist.github.com/pq1949/522c09c4597287baff07e1981cac0df4</a></p>
 
 
